@@ -56,3 +56,8 @@ class autoencoder(nn.Module):
             nn.ConvTranspose2d(4, 1, 3, stride=3, padding=1),  # b, 8, 15, 15
             nn.Tanh()
         )
+
+    def forward(self, x):
+        x = self.encoder(x)
+        x = self.decoder(x)
+        return x
